@@ -120,11 +120,11 @@ export default {
   },
   methods: {
     updateSongs () {
-      this.$axios.get(`/api/releases/${this.$route.params.release}`).then((response) => {
+      this.$axios.get(process.env.baseUrl + `/api/releases/${this.$route.params.release}`).then((response) => {
         // console.log(response)
         this.release = response.data
       })
-      this.$axios.get(`/api/songs/${this.$route.params.release}`).then((response) => {
+      this.$axios.get(process.env.baseUrl + `/api/songs/${this.$route.params.release}`).then((response) => {
         // console.log(response)
         this.songs = response.data
       })
