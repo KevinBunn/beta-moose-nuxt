@@ -29,7 +29,7 @@ export default {
   ],
 
   serverMiddleware: [
-    '~/api/routes'
+    process.env.NODE_ENV === 'production' ? [] : ['~/api/routes']
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
