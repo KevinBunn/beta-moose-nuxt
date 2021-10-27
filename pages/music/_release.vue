@@ -121,11 +121,11 @@ export default {
   methods: {
     updateSongs () {
       this.$axios.get(`/api/releases/${this.$route.params.release}`).then((response) => {
-        console.log(response)
+        // console.log(response)
         this.release = response.data
       })
       this.$axios.get(`/api/songs/${this.$route.params.release}`).then((response) => {
-        console.log(response)
+        // console.log(response)
         this.songs = response.data
       })
     },
@@ -135,7 +135,8 @@ export default {
   },
   mounted() {
     // if head script has already been loaded
-    if (WaveSurfer) {
+    // console.log(WaveSurfer)
+    if (typeof WaveSurfer !== undefined) {
       this.waveSurferReady = true
     }
     this.updateSongs()
