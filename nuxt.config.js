@@ -28,9 +28,9 @@ export default {
     // {src: '~plugins/wavesurfer', mode: 'client'}
   ],
 
-  serverMiddleware: [
-    process.env.NODE_ENV === 'production' ? [] : ['~/api/routes']
-  ],
+  // serverMiddleware: [
+  //   process.env.NODE_ENV === 'production' ? [] : ['~/api/routes']
+  // ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
