@@ -34,7 +34,4 @@ app.get('/songs/:id', jsonParser, async(req,res) => {
   res.send(songs)
 })
 
-export default {
-  path: '/api',
-  handler: app
-}
+export default app
