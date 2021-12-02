@@ -28,7 +28,7 @@ export default {
     // {src: '~plugins/wavesurfer', mode: 'client'}
   ],
 
-  serverMiddleware: ['~/api', '~/api/'],
+  serverMiddleware: [{ path: '/api', handler: '~/api/' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
