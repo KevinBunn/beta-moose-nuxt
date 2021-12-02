@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }],
   "builds": [
     {
       "src": "nuxt.config.js",
@@ -11,17 +12,6 @@
     {
       "src": "api/*.js",
       "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1.js",
-      "methods": ["GET", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
     }
   ]
 }

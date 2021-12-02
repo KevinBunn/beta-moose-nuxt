@@ -15,17 +15,20 @@ mongoose.connect(process.env.MONGO_URI,{
 
 const Songs = mongoose.model('songs');
 const Releases = mongoose.model('releases');
-// routes.get('/', (req, res) => {
-//   console.log('connected')
-//   res.status(200).send('Connected!')
-// })
+app.get('/', (req, res) => {
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  console.log('connected')
+  res.status(200).send('Connected!')
+})
 
 app.get('/releases/:id', jsonParser, async (req,res) => {
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   const release = await Releases.findOne({id: req.params.id});
   res.send(release)
 });
 
 app.get('/songs/:id', jsonParser, async(req,res) => {
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   // find songs with release_id :id
   const songs = await Songs.find({release_id: req.params.id});
   res.send(songs)
