@@ -6,7 +6,7 @@ require('../stores/releases/model/releases');
 const jsonParser = bodyParser.json()
 const app = express()
 
-mongoose.connect("mongodb+srv://AdminMoose:nijpyr-mypdez-6neFxo@cluster0-kxpov.mongodb.net/moose_logic?retryWrites=true&w=majority",{
+mongoose.connect(process.env.MONGO_URI,{
   useNewUrlParser: true,
   // useFindAndModify: false,
   // useCreateIndex: true,
