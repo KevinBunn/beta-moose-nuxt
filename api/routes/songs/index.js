@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 const Index = mongoose.model('songs');
 
-app.get('api/songs/:id', jsonParser, async(req,res) => {
+app.get('/api/songs/:id', jsonParser, async(req,res) => {
   // res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   // find songs with release_id :id
   const songs = await Index.find({release_id: req.params.id});

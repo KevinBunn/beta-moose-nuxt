@@ -13,12 +13,12 @@ mongoose.connect(process.env.MONGO_URI)
 
 const Index = mongoose.model('releases');
 
-app.get('api/releases', jsonParser, async (req,res) => {
+app.get('/api/releases', jsonParser, async (req,res) => {
   // res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).send('Releases!')
 });
 
-app.get('api/releases/:id', jsonParser, async (req,res) => {
+app.get('/api/releases/:id', jsonParser, async (req,res) => {
   // res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   const release = await Index.findOne({id: req.params.id});
   res.send(release)
