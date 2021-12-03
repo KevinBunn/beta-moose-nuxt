@@ -5,15 +5,21 @@
   ],
   "builds": [
     {
-      "src": "api/**/*.js",
+      "src": "./api/index.js",
       "use": "@vercel/node"
     },
     {
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder",
       "config": {
-        "serverFiles": ["api/**"]
+        "serverFiles": ["./api/**"]
       }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/routes/(.*)",
+      "dest": "/"
     }
   ]
 }
