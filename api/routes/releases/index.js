@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
-require('../../stores/releases/model/releases');
+require('../../../stores/releases/model/releases');
 const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
-const { Router } = require('express')
-const router = Router()
+const app = require('../../app')
 
 mongoose.connect(process.env.MONGO_URI)
   .catch(err => {
@@ -12,12 +11,12 @@ mongoose.connect(process.env.MONGO_URI)
     console.log('connected')
   });
 
-const Releases = mongoose.model('releases');
+const Index = mongoose.model('releases');
 
-router.get('/releases/:id', jsonParser, async (req,res) => {
+app.get('/releases/:id', jsonParser, async (req,res) => {
   // res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  const release = await Releases.findOne({id: req.params.id});
+  const release = await Index.findOne({id: req.params.id});
   res.send(releases)
 });
 
-module.exports = router
+module.exports = app

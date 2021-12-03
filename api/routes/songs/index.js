@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
-require('../../stores/songs/models/song');
+require('../../../stores/songs/models/song');
 const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
-const { Router } = require('express')
-const router = Router()
+const app = require('../../app')
 
 mongoose.connect(process.env.MONGO_URI)
   .catch(err => {
@@ -12,13 +11,13 @@ mongoose.connect(process.env.MONGO_URI)
   console.log('connected')
 });
 
-const Songs = mongoose.model('songs');
+const Index = mongoose.model('songs');
 
-router.get('/songs/:id', jsonParser, async(req,res) => {
+app.get('/songs/:id', jsonParser, async(req,res) => {
   // res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   // find songs with release_id :id
-  const songs = await Songs.find({release_id: req.params.id});
+  const songs = await Index.find({release_id: req.params.id});
   res.send(songs)
 })
 
-module.exports = router
+module.exports = app

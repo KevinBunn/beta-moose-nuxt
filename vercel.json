@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" }
-  ],
   "builds": [
     {
-      "src": "./api/index.js",
+      "src": "api/routes/**/*.js",
       "use": "@vercel/node"
     },
     {
@@ -15,5 +12,13 @@
         "serverFiles": ["./api/**"]
       }
     }
+  ],
+  "routes": [
+    { "src": "/api/releases(.*)", "dest": "api/routes/releases" },
+    { "src": "/api/songs(.*)", "dest": "api/routes/songs" },
+    { "src": "/api/(.*)", "dest": "api/routes/$1" },
+    { "src": "/api", "dest": "api/routes/index.js" },
+    { "src": "/_nuxt/.+", "headers": { "cache-control": "s-maxage=31536000" } },
+    { "src": "/(.*)", "dest": "$1" }
   ]
 }
