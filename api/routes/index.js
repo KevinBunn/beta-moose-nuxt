@@ -8,14 +8,4 @@ app.get('/api', (req, res) => {
   res.status(200).send('Connected!')
 })
 
-app.get('/api/releases', async (req,res) => {
-  // res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.status(200).send('Releases!')
-});
-
-app.get('/api/releases/:id', jsonParser, async (req,res) => {
-  // res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.status(200).send(req.params.id)
-});
-
 export default app
