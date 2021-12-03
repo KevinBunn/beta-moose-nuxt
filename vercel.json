@@ -14,6 +14,7 @@
     }
   ],
   "routes": [
+    { "src": "/api/releases(.*)", "dest": "api/routes/releases"},
     { "src": "/api/songs(.*)", "dest": "api/routes/songs"},
     { "src": "/api/(.*)", "dest": "api/routes/$1" },
     { "src": "/api", "dest": "api/routes/index.js" },
