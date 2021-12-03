@@ -9,13 +9,13 @@ mongoose.connect(process.env.MONGO_URI).catch(err => {
   console.log(err.reason)
 });
 
-router.get('/songs/:id', jsonParser, async(req,res) => {
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  // find songs with release_id :id
-  // const songs = await Songs.find({release_id: req.params.id});
-  res.send(`Song: ${req.params.id}`)
-})
-
 const Songs = mongoose.model('songs');
+
+router.get('/songs/:id', jsonParser, async(req,res) => {
+  // res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  // find songs with release_id :id
+  const songs = await Songs.find({release_id: req.params.id});
+  res.send(songs)
+})
 
 module.exports = router
