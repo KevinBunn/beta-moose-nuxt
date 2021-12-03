@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require('../stores/songs/models/song');
+require('../../stores/songs/models/song');
 const { Router } = require('express')
 const router = Router()
 
