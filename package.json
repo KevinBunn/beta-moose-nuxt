@@ -19,6 +19,7 @@
     "wavesurfer.js": "^5.2.0"
   },
   "devDependencies": {
+    "@nuxtjs/vercel-builder": "^0.22.1",
     "@nuxtjs/vuetify": "^1.12.1",
     "chromedriver": "^91.0.1",
     "nightwatch": "^1.7.6"
