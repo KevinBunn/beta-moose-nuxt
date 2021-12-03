@@ -6,7 +6,7 @@ const { Router } = require('express')
 const router = Router()
 
 mongoose.connect(process.env.MONGO_URI).catch(err => {
-  console.log(err.reason)
+  console.log(`Error boy: ${err.reason}`)
 });
 
 router.get('/releases/:id', jsonParser, async (req,res) => {
