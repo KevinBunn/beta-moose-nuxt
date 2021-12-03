@@ -1,7 +1,5 @@
 import express from 'express'
-const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const jsonParser = bodyParser.json()
 const app = express()
 
 app.get('/', (req, res) => {

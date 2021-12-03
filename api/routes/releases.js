@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 require('../../stores/releases/model/releases');
+const bodyParser = require('body-parser')
+const jsonParser = bodyParser.json()
 const { Router } = require('express')
 const router = Router()
 
