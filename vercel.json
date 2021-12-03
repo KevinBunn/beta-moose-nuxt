@@ -15,11 +15,5 @@
         "serverFiles": ["./api/**"]
       }
     }
-  ],
-  "routes": [
-    {
-      "src": "/routes/(.*)",
-      "dest": "/"
-    }
   ]
 }
