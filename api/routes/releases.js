@@ -5,9 +5,12 @@ const jsonParser = bodyParser.json()
 const { Router } = require('express')
 const router = Router()
 
-mongoose.connect(process.env.MONGO_URI).catch(err => {
-  console.log(err.reason)
-});
+mongoose.connect(process.env.MONGO_URI)
+  .catch(err => {
+    console.log(err.reason)
+  }).then(() => {
+    console.log('connected')
+  });
 
 const Releases = mongoose.model('releases');
 
