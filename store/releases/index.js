@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require('../../../stores/releases/model/releases');
+// require('../../../stores/releases/model/releases');
 const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
 const app = require('../../app')
